@@ -1,0 +1,19 @@
+{
+  "name" : "Sketch Pastilles",
+  "author" : "Jimmy Vergerolle",
+  "identifier" : "com.jvergerolle.sketch.pastille",
+  "version" : "1.0",
+  "description" : "Add character count on text layers using little badges",
+  "authorEmail" : "jimmy@vergerolle.fr",
+  "commands" : [
+    {
+      "script" : "pastille.js",
+      "name" : "Count characters in all page",
+      "handlers" : {"run" : "onRun"},
+      "identifier" : "all"
+    }
+  ],
+  "menu" : {
+    "items" : ["all"]
+  }
+}
