@@ -16,13 +16,13 @@ var utils = {
     var rectangle = MSShapeGroup.shapeWithPath(shape);
     var fill = rectangle.style().addStylePartOfType(0);
     fill.color = MSImmutableColor.colorWithSVGString(opt.fill.color);
-    fill.alpha = opt.fill.alpha;
+    //fill.alpha = opt.fill.alpha;
 
-    /*if(opt.displayBorder){
+    if(opt.displayBorder){
       var stroke = rectangle.style().addStylePartOfType(1);
       stroke.color = MSImmutableColor.colorWithSVGString(opt.border.color);
-      stroke.alpha = opt.border.alpha;
-    }*/
+      //stroke.alpha = opt.border.alpha;
+    }
 
     parent.addLayers([rectangle]);
 
