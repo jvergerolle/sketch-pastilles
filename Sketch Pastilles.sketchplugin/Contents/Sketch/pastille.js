@@ -23,13 +23,13 @@ var onRun = function(context)
 			//Render pastilles
 			if(txtLayers.length > 0){
 				var pastilleGroup = utils.addGroup("Pastilles : "+artboards[a].name(),artboards[a]);
-				//Test
-				//var testrectangle = utils.addRectangle(0,0,conf.pastilles.style,"pastille test",pastilleGroup);
+
 				for (var i = 0; i < txtLayers.length; i++)
 				{
 					//log("add pastille with count "+txtLayers[i].count+" for text :"+txtLayers[i].text);
 					var gp = utils.addGroup("pastille "+i, pastilleGroup);
 					utils.addRectangle(txtLayers[i].x, txtLayers[i].y, conf.pastilles.style, "pastille",gp);
+					utils.addText(txtLayers[i].x, txtLayers[i].y, txtLayers[i].count, gp);
 				}
 			}
 		}
