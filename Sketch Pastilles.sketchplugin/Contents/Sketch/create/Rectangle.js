@@ -14,7 +14,7 @@ var Rectangle = function(name, width, height, radius){
   this.element.name = this.name;
   this.element.frame().width = this.width;
   this.element.frame().height = this.height;
-  this.element.setCornerRadiusFromComponents(this.radius.topLeft + "/" + this.radius.topRight + "/" + this.radius.bottomRight + "/" + this.radius.bottomLeft);
+  this.element.setCornerRadiusFromComponents(this.radius.topLeft + ";" + this.radius.topRight + ";" + this.radius.bottomRight + ";" + this.radius.bottomLeft);
 
   //Rectangle creation
   this.shape = MSShapeGroup.shapeWithPath(this.element);
