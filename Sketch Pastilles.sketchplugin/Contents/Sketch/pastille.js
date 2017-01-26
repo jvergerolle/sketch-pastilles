@@ -5,7 +5,7 @@ var onRun = function(context)
 	@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/lib/utils.js'
 	@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/create/Group.js'
 	@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/create/Rectangle.js'
-	@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/create/Text.js'
+	@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/create/Textfield.js'
 
 	//get javascript API root object
 	var sketch = context.api();
@@ -33,26 +33,27 @@ var onRun = function(context)
 
 			//Render pastilles
 			if(txtLayers.length > 0){
-				var pastilleGroup = new Group("Pastilles : "+artboards[a].name());
+				var pastilleGroup = new Group("🔵 Pastilles : "+artboards[a].name());
 				artboards[a].addLayers([pastilleGroup.getGroup()]);
 
 				for (var i = 0; i < txtLayers.length; i++)
 				{
 					//log("add pastille with count "+txtLayers[i].count+" for text :"+txtLayers[i].text);
-					var group = new Group("pastille "+i);
+					var group = new Group("⚪️ pastille "+i);
 					pastilleGroup.addLayer(group.getGroup());
 
-					var rectangle = new Rectangle("pastille", conf.pastilles.style.width, conf.pastilles.style.height, conf.pastilles.style.radius);
+					var rectangle = new Rectangle("pastille shape", conf.pastilles.style.width, conf.pastilles.style.height, conf.pastilles.style.radius);
 					if(conf.pastilles.style.displayBorder) rectangle.setStrokeColor(conf.pastilles.style.border.color);
 					rectangle.setFillColor(conf.pastilles.style.fill.color);
 					group.addLayer(rectangle.getRectangle());
-					rectangle.setX(txtLayers[i].x);
+					rectangle.setX(txtLayers[i].x + (txtLayers[i].width - rectangle.getWidth()));
 					rectangle.setY(txtLayers[i].y);
 
-					//var text = new Text(txtLayers[i].count);
-					//group.addLayer(text.getRectangle());
-					//text.setX(txtLayers[i].x);
-					//text.setY(txtLayers[i].y);
+					var text = new Textfield(txtLayers[i].count.toString());
+					group.addLayer(text.getTextfield());
+					text.setX(rectangle.getX() + (rectangle.getWidth()/2 - text.getWidth()/2));
+					text.setY(rectangle.getY());
+					text.setColor(conf.pastilles.text.color);
 				}
 			}
 		}

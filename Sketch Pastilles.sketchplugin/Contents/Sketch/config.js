@@ -12,6 +12,9 @@ var conf = {
         bottomLeft: 15,
         bottomRight: 15
       }
+    },
+    text : {
+      color : "#ffffff"
     }
-  }
+  },
 }
