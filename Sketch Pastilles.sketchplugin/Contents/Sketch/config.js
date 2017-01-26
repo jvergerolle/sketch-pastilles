@@ -5,11 +5,13 @@ var conf = {
       height : 14,
       fill : {color:"#4990E2", alpha:1},
       border: {color:"#236DC3", alpha:1},
-      displayBorder: true,
-      borderRadiusTopLeft: "15",
-      borderRadiusTopRight: "15",
-      borderRadiusBottomLeft: "15",
-      borderRadiusBottomRight: "15"
+      displayBorder: false,
+      radius: {
+        topLeft: 15,
+        topRight: 15,
+        bottomLeft: 15,
+        bottomRight: 15
+      }
     }
   }
 }

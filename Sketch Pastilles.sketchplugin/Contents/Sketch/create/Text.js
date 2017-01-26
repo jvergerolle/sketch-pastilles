@@ -1,9 +1,9 @@
+@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/lib/utils.js'
+
 //Define constructor
 var Text = function(text){
   this.x = 0;
   this.y = 0;
-  this.width = width;
-  this.height = height;
   this.string = text;
 
   //Text proportions
@@ -29,13 +29,13 @@ Text.prototype.getY = function(){
 }
 
 Text.prototype.setX = function(x){
-  var rect = this.getRect(this.element);
+  var rect = utils.getRect(this.element);
   this.x = x;
   rect.setX(x);
 }
 
 Text.prototype.setY = function(y){
-  var rect = this.getRect(this.element);
+  var rect = utils.getRect(this.element);
   this.y = y;
   rect.setY(y);
 }

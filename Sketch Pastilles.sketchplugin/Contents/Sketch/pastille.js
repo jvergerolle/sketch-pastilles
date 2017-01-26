@@ -1,7 +1,7 @@
 var onRun = function(context)
 {
 	//Libraries
-	@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/lib/config.js'
+	@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/config.js'
 	@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/lib/utils.js'
 	@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/create/Group.js'
 	@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/create/Rectangle.js'
@@ -17,14 +17,14 @@ var onRun = function(context)
 
 	//Loop through layers
 	try{
-		init();
+		init(conf);
 	}
 	catch(error){
 		context.api().alert(error.message,"Javascript Error");
 	}
 
 	//Define init
-	function init(){
+	function init(conf){
 		//For each artboard in page
 		for (var a = 0; a < artboards.length; a++)
 		{
@@ -40,19 +40,19 @@ var onRun = function(context)
 				{
 					//log("add pastille with count "+txtLayers[i].count+" for text :"+txtLayers[i].text);
 					var group = new Group("pastille "+i);
-					pastilleGroup.addLayers([group.getGroup()]);
+					pastilleGroup.addLayer(group.getGroup());
 
-					var rectangle = new Rectangle("pastille", conf.pastille.style.width, conf.pastille.style.height);
-					if(conf.pastille.style.displayBorder) rectangle.setStrokeColor(conf.pastille.style.stroke.color);
-					rectangle.setFillColor(conf.pastille.style.fill.color);
-					group.addLayers([rectangle.getRectangle()]);
+					var rectangle = new Rectangle("pastille", conf.pastilles.style.width, conf.pastilles.style.height, conf.pastilles.style.radius);
+					if(conf.pastilles.style.displayBorder) rectangle.setStrokeColor(conf.pastilles.style.border.color);
+					rectangle.setFillColor(conf.pastilles.style.fill.color);
+					group.addLayer(rectangle.getRectangle());
 					rectangle.setX(txtLayers[i].x);
 					rectangle.setY(txtLayers[i].y);
 
-					var text = new Text(txtLayers[i].count);
-					group.addLayers([text.getRectangle()]);
-					text.setX(txtLayers[i].x);
-					text.setY(txtLayers[i].y);
+					//var text = new Text(txtLayers[i].count);
+					//group.addLayer(text.getRectangle());
+					//text.setX(txtLayers[i].x);
+					//text.setY(txtLayers[i].y);
 				}
 			}
 		}

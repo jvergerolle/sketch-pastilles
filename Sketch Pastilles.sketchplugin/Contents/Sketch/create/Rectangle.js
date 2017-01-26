@@ -1,16 +1,20 @@
+@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/lib/utils.js'
+
 //Define constructor
-var Rectangle = function(name, width, height){
+var Rectangle = function(name, width, height, radius){
   this.name = name;
   this.x = 0;
   this.y = 0;
   this.width = width;
   this.height = height;
+  this.radius = radius;
 
   //Rectangle proportions
   this.element = MSRectangleShape.new();
   this.element.name = this.name;
   this.element.frame().width = this.width;
   this.element.frame().height = this.height;
+  this.element.setCornerRadiusFromComponents(this.radius.topLeft + "/" + this.radius.topRight + "/" + this.radius.bottomRight + "/" + this.radius.bottomLeft);
 
   //Rectangle creation
   this.shape = MSShapeGroup.shapeWithPath(this.element);
@@ -48,13 +52,13 @@ Rectangle.prototype.setName = function(name){
 }
 
 Rectangle.prototype.setX = function(x){
-  var rect = this.getRect(this.shape);
+  var rect = utils.getRect(this.shape);
   this.x = x;
   rect.setX(x);
 }
 
 Rectangle.prototype.setY = function(y){
-  var rect = this.getRect(this.shape);
+  var rect = utils.getRect(this.shape);
   this.y = y;
   rect.setY(y);
 }
@@ -67,8 +71,4 @@ Rectangle.prototype.setFillColor = function(color){
 Rectangle.prototype.setStrokeColor = function(color){
   this.stroke = this.shape.style().addStylePartOfType(1);
   this.stroke.color = MSImmutableColor.colorWithSVGString(color);
-}
-
-Rectangle.prototype.setRadius = function(topLeft,topRight,bottomRight,bottomLeft){
-  this.shape.setCornerRadiusFromComponents(topLeft + "/" + topRight + "/" + bottomRight + "/" + bottomLeft);
 }
