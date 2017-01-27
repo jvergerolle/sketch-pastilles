@@ -1,4 +1,4 @@
-@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/lib/utils.js'
+@import 'lib/utils.js'
 
 //Define constructor
 var Textfield = function(text){

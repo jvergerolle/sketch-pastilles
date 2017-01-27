@@ -1,11 +1,11 @@
 var onRun = function(context)
 {
 	//Libraries
-	@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/config.js'
-	@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/lib/utils.js'
-	@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/create/Group.js'
-	@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/create/Rectangle.js'
-	@import '~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Sketch Pastilles.sketchplugin/Contents/Sketch/create/Textfield.js'
+	@import 'config.js'
+	@import 'lib/utils.js'
+	@import 'create/Group.js'
+	@import 'create/Rectangle.js'
+	@import 'create/Textfield.js'
 
 	//get javascript API root object
 	var sketch = context.api();
@@ -20,7 +20,7 @@ var onRun = function(context)
 		init(conf);
 	}
 	catch(error){
-		context.api().alert(error.message,"Javascript Error");
+		context.api().alert(error.message,"CocoaScript Error");
 	}
 
 	//Define init
