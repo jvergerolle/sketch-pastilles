@@ -12,7 +12,7 @@ var Textfield = function(text){
   this.element = MSTextLayer.new();
   this.element.name = this.name;
   this.element.setStringValue(this.string);
-  this.element.setTextColor(MSImmutableColor.colorWithSVGString(this.color));
+  this.element.setTextColor(MSImmutableColor.colorWithSVGString(this.color).newMutableCounterpart());
 
   //Create Width and Height values
   var rect = utils.getRect(this.element);
@@ -69,5 +69,5 @@ Textfield.prototype.setString = function(text){
 
 Textfield.prototype.setColor = function(color){
   this.color = color;
-  this.element.setTextColor(MSImmutableColor.colorWithSVGString(this.color));
+  this.element.setTextColor(MSImmutableColor.colorWithSVGString(this.color).newMutableCounterpart());
 }

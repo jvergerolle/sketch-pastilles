@@ -65,10 +65,10 @@ Rectangle.prototype.setY = function(y){
 
 Rectangle.prototype.setFillColor = function(color){
   this.fill = this.shape.style().addStylePartOfType(0);
-  this.fill.color = MSImmutableColor.colorWithSVGString(color);
+  this.fill.color = MSImmutableColor.colorWithSVGString(color).newMutableCounterpart();
 }
 
 Rectangle.prototype.setStrokeColor = function(color){
   this.stroke = this.shape.style().addStylePartOfType(1);
-  this.stroke.color = MSImmutableColor.colorWithSVGString(color);
+  this.stroke.color = MSImmutableColor.colorWithSVGString(color).newMutableCounterpart();
 }
