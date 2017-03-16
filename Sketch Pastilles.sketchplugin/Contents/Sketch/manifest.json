@@ -2,8 +2,9 @@
   "name" : "Sketch Pastilles",
   "author" : "Jimmy Vergerolle",
   "identifier" : "com.jvergerolle.sketch.pastille",
-  "version" : "1.0",
-  "description" : "Add character count on text layers using little badges",
+  "version" : 1.0,
+  "compatibleVersion": 41.0,
+  "description" : "Sketch plugin to display character count of text layers on your design",
   "authorEmail" : "jimmy@vergerolle.fr",
   "commands" : [
     {
